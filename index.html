@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="br">
+<head>
+    <meta charset="UTF-8">
+    <title>Dog say</title>
+</head>
+<body>
+
+    <div class="formulario">
+        <input  placeholder="Insira seu texto aqui!" id="entrada_texto">
+        <input type="submit" value="Enviar" id="botao_enviar">
+    </div>
+
+    <pre>
+      ___<span></span>
+     / <div class="saida" style="display: inline"></div>
+     \___   <span></span>
+         \ /
+           _=,_
+        o_/6 /#\
+        \__ |##/
+         # |--\
+           /   #'-.
+           \#|_   _'-. /
+            |/ \_( # |"
+           C/ ,--___/
+    </pre>
+
+</body>
+<script defer>
+
+    let spans = document.querySelectorAll("span");
+    let div = document.querySelector("div.saida");
+    let entrada_texto =document.querySelector("#entrada_texto")
+    let entrada = document.querySelector("#botao_enviar");
+
+    entrada.onclick = (evt) => {
+
+        let texto_entrada = entrada_texto.value;
+
+        div.textContent = texto_entrada;
+
+        spans[0].textContent = "_".repeat(texto_entrada.length -1);
+        div.textContent += " \\";
+
+        if (texto_entrada.length <= 4 ) {
+            spans[1].textContent = "\\";
+        } else {
+            spans[1].textContent =  "_".repeat(texto_entrada.length-4);
+            spans[1].textContent += "/";
+        }
+
+
+
+
+
+
+    }
+
+    entrada_texto.value = "Au Au!";
+    entrada.click();
+    entrada_texto.value = "";
+
+
+
+</script>
+
+</html>
